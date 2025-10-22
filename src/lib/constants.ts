@@ -1,0 +1,182 @@
+export const CONTRACT_ADDRESS = "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9";
+
+export const CONTRACT_ABI = [
+  {
+    type: "constructor",
+    inputs: [
+      {
+        name: "_withdrawalLimitPerTransaction",
+        type: "uint256",
+        internalType: "uint256",
+      },
+      { name: "_bankCap", type: "uint256", internalType: "uint256" },
+    ],
+    stateMutability: "nonpayable",
+  },
+  { type: "fallback", stateMutability: "payable" },
+  { type: "receive", stateMutability: "payable" },
+  {
+    type: "function",
+    name: "bankCapacity",
+    inputs: [],
+    outputs: [{ name: "", type: "uint256", internalType: "uint256" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "deposit",
+    inputs: [],
+    outputs: [],
+    stateMutability: "payable",
+  },
+  {
+    type: "function",
+    name: "getBankBalance",
+    inputs: [],
+    outputs: [{ name: "", type: "uint256", internalType: "uint256" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "getBankCap",
+    inputs: [],
+    outputs: [{ name: "", type: "uint256", internalType: "uint256" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "getBankTxCount",
+    inputs: [],
+    outputs: [
+      { name: "deposits", type: "uint128", internalType: "uint128" },
+      { name: "withdrawals", type: "uint128", internalType: "uint128" },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "getOwnerTxCount",
+    inputs: [{ name: "owner", type: "address", internalType: "address" }],
+    outputs: [
+      { name: "deposits", type: "uint128", internalType: "uint128" },
+      { name: "withdrawals", type: "uint128", internalType: "uint128" },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "getUserBalance",
+    inputs: [{ name: "user", type: "address", internalType: "address" }],
+    outputs: [{ name: "", type: "uint256", internalType: "uint256" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "getWithdrawLimitPerTransaction",
+    inputs: [],
+    outputs: [{ name: "", type: "uint256", internalType: "uint256" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "verifyOwnership",
+    inputs: [{ name: "addr", type: "address", internalType: "address" }],
+    outputs: [{ name: "", type: "bool", internalType: "bool" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "withdraw",
+    inputs: [{ name: "_amount", type: "uint256", internalType: "uint256" }],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "withdrawLimit",
+    inputs: [],
+    outputs: [{ name: "", type: "uint256", internalType: "uint256" }],
+    stateMutability: "view",
+  },
+  {
+    type: "event",
+    name: "Deposit",
+    inputs: [
+      {
+        name: "from",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "amount",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+      {
+        name: "newBalance",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+    ],
+    anonymous: false,
+  },
+  {
+    type: "event",
+    name: "OwnerRegistered",
+    inputs: [
+      {
+        name: "newOwner",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+    ],
+    anonymous: false,
+  },
+  {
+    type: "event",
+    name: "Withdraw",
+    inputs: [
+      {
+        name: "from",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "amount",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+      {
+        name: "remainingBalance",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+    ],
+    anonymous: false,
+  },
+  { type: "error", name: "KipuBank__BankCapExceeded", inputs: [] },
+  {
+    type: "error",
+    name: "KipuBank__DirectDepositNotAllowed",
+    inputs: [],
+  },
+  { type: "error", name: "KipuBank__InsufficientFunds", inputs: [] },
+  { type: "error", name: "KipuBank__InvalidBankCapAmount", inputs: [] },
+  { type: "error", name: "KipuBank__InvalidDepositAmount", inputs: [] },
+  {
+    type: "error",
+    name: "KipuBank__InvalidWithdrawLimitPerTransactionValue",
+    inputs: [],
+  },
+  { type: "error", name: "KipuBank__NotOwner", inputs: [] },
+  { type: "error", name: "KipuBank__TransactionFailed", inputs: [] },
+  { type: "error", name: "KipuBank__UnsupportedCall", inputs: [] },
+  { type: "error", name: "KipuBank__WithdrawLimitExceeded", inputs: [] },
+];
