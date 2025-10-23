@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={kanit.className}>
-      <body>
+      <body className="flex min-h-svh flex-col overscroll-none bg-gradient-to-br from-[#0B0C1E] via-[#10203A] to-[#1E394A] text-white overflow-hidden">
         <Providers>{children}</Providers>
       </body>
     </html>

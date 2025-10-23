@@ -6,12 +6,17 @@ import { getDefaultConfig, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { WagmiProvider, http } from "wagmi";
 import { anvil, sepolia } from "wagmi/chains";
+import { Toaster } from "sonner";
+import { BankProvider } from "./lib/bank-context";
 
-const config = getDefaultConfig({
+export const config = getDefaultConfig({
   appName: "KipuBank V2",
   projectId: "53500db8a42087911ad5b7b5ef4cf056",
   chains: [anvil, sepolia],
-  transports: { [anvil.id]: http("http://127.0.0.1:8545") },
+  transports: {
+    [anvil.id]: http("http://127.0.0.1:8545"),
+    [sepolia.id]: http(),
+  },
   ssr: false,
 });
 
@@ -21,8 +26,11 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider locale="en-US">{children}</RainbowKitProvider>
+        <RainbowKitProvider locale="en-US">
+          <BankProvider>{children}</BankProvider>
+        </RainbowKitProvider>
       </QueryClientProvider>
+      <Toaster richColors />
     </WagmiProvider>
   );
 }
