@@ -54,7 +54,6 @@ export function DepositButton() {
     hash: txHash,
   });
 
-  // if (isLoading) toast.info("Transaction pending...");
   if (isSuccess) {
     toast.success("Deposit confirmed!");
     refetchAll();

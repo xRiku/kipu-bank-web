@@ -8,7 +8,6 @@ export default function Header() {
   const { address } = useAccount();
   const { data: balanceData } = useBalance({
     address,
-    watch: true,
   });
 
   return (
