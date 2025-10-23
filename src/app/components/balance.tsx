@@ -16,9 +16,12 @@ export default function Balance() {
 
   return (
     <div className="flex flex-col">
-      <p>
-        Your balance {Number(formatEther(data?.value as bigint)).toFixed(6)}
-        {data?.symbol}
+      <p className="text-sm text-gray-300 mb-6">
+        Your balance{" "}
+        <span className="font-semibold text-white">
+          {Number(formatEther(data?.value as bigint)).toFixed(6)}
+          {data?.symbol}
+        </span>
       </p>
     </div>
   );

@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "@/providers";
+import { Kanit } from "next/font/google";
 
 export const metadata: Metadata = {
-  title: "KipuBank V2",
-  description: "KipuBank V2",
+  title: "KipuBank v2",
+  description: "KipuBank v2",
 };
+
+const kanit = Kanit({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+});
 
 export default function RootLayout({
   children,
@@ -13,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={kanit.className}>
       <body>
         <Providers>{children}</Providers>
       </body>

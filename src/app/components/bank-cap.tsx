@@ -28,12 +28,12 @@ export function BankCap() {
     );
 
   return (
-    <div className="text-2xl font-bold flex items-center gap-2">
-      Bank Capacity:{" "}
-      <p>
+    <p className="text-2xl font-bold flex items-center gap-2">
+      Bank Capacity:
+      <span className="text-white">
         {formatEther(bankBalance as bigint)}/{formatEther(bankCap as bigint)}{" "}
         ETH
-      </p>
-    </div>
+      </span>
+    </p>
   );
 }
